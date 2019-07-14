@@ -1,0 +1,34 @@
+#include<iostream>
+#define SIZE 10
+using namespace std;
+
+void ShellSort(int a[], int n)
+{
+    int i, j;
+    int jump = n;
+    do 
+        {
+            jump = jump/3 + 1;
+            for(i=jump+1;i<n;i++)
+            {
+                if (a[i]<a[i-jump])
+                {
+                    a[0] = a[i];
+                    for (j=i-jump;j>0&&a[0]<a[j];j-=jump)
+                    {
+                        a[j+jump] = a[j];
+                    }
+                    a[j+jump] = a[0];
+                }
+            }
+        } while (jump>1);   
+}
+
+int main()
+{
+     int number[SIZE] = {0,4,2,3,1,7,8,6,9,5};
+     int num;
+     ShellSort(number,SIZE);
+     for(num=1;num<SIZE;num++)
+         cout<<number[num]<<" ";
+}
