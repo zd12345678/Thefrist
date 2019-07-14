@@ -5,13 +5,13 @@ using namespace std;
 void ShellSort(int a[], int n)
 {
     int i, j;
-    int jump = n;
+    int jump = n;                                                       //为分组做准备
     do 
         {
-            jump = jump/3 + 1;
+            jump = jump/3 + 1;                                          //分组
             for(i=jump+1;i<n;i++)
             {
-                if (a[i]<a[i-jump])
+                if (a[i]<a[i-jump])                                     //在分组内进行插入排序
                 {
                     a[0] = a[i];
                     for (j=i-jump;j>0&&a[0]<a[j];j-=jump)
